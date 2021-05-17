@@ -7,13 +7,13 @@ from .models import DB, User
 
 def create_app():
     """Creates and configures an instance of the flask application"""
-    app = Flask(__name__)
+    app = Flask(__name__)   # Name points to where our path is once we run code
 
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite3"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     DB.init_app(app)
 
-    @app.route('/')
+    @app.route('/') # Decorator provided by Flask, .route is going to run this function when this route is visited
     def root():
         users = User.query.all()
         return render_template("base.html", title="Home", users=users)
