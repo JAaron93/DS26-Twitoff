@@ -2,7 +2,7 @@
 """Main app/routing file for Twitoff"""
 
 from flask import Flask, render_template
-from .models import DB, User
+from .models import DB, User, Tweet
 
 
 def create_app():
@@ -43,3 +43,10 @@ def insert_users(usernames):
         user = User(id=id_index, username=username)
         DB.session.add(user)
         DB.session.commit()
+
+
+# def insert_tweet(tweets):
+#     for id, text in enumerate(tweets):
+#         tweet = Tweet(id=id, text=text, user_id=user_id)
+#         DB.session.add(tweets)
+#         DB.session.commit()
