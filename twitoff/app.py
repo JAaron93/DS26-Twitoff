@@ -27,7 +27,7 @@ def create_app():
 
     @app.route('/populate')
     def populate():
-        insert_users(["elonmusk", "jackblack"])
+        insert_users(["youyanggu", "NegarestaniReza"])
         users = User.query.all()
         return render_template("base.html", title="Home", users=users)
 

@@ -12,8 +12,8 @@ class User(DB.Model):
     # username column for 'user'
     username = DB.Column(DB.String, nullable=False)
 
-    # def __repr__(self):
-    #     return f"<User: {self.username}>"
+    def __repr__(self):
+        return f"<User: {self.username}>"
 
 
 # Creates a 'tweet' Table
@@ -27,7 +27,7 @@ class Tweet(DB.Model):
         'user.id'), nullable=False)
 
     ### TODO: STRETCH GOAL ###
-    user = DB.relationship('User', backref=DB.backref('tweets', lazy=True))
+    # user = DB.relationship('User', backref=DB.backref('tweets', lazy=True))
 
-    # def __repr__(self):
-    #     return f"<Tweet: {self.text}>"
+    def __repr__(self):
+        return f"<Tweet: {self.text}>"

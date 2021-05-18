@@ -1,14 +1,25 @@
 [[source]]
-name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-
-[dev-packages]
+name = "pypi"
 
 [packages]
+pandas = "*"
+as = "*"
+pd = "*"
+numpy = "*"
+np = "*"
+pytest = "*"
+sklearn = "*"
+autopep8 = "*"
+pycodestyle = "*"
+psycopg2-binary = "*"
+psycopg2 = "*"
 flask = "*"
 jinja2 = "*"
 flask-sqlalchemy = "*"
 
+[dev-packages]
+
 [requires]
-python_version = "3.8"
+python_version = "3.9"
