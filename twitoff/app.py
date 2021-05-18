@@ -13,7 +13,8 @@ def create_app():
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     DB.init_app(app)
 
-    @app.route('/') # Decorator provided by Flask, .route is going to run this function when this route is visited
+    # Decorator provided by Flask, .route is going to run this function when this route is visited
+    @app.route('/')
     def root():
         users = User.query.all()
         return render_template("base.html", title="Home", users=users)
@@ -24,6 +25,9 @@ def create_app():
         DB.create_all()
         users = User.query.all()
         return render_template("base.html", title="Home", users=users)
+
+    # @app.route('/update')
+    # def update():
 
     @app.route('/populate')
     def populate():
