@@ -44,6 +44,13 @@ def create_app():
 
     return app
 
+# TODO: Workflow - Attempt any code at all inside a flask shell, if it works, copy and paste into a function here to make it reproducible. By that logic, use the code Nick writes during Guided Project to figure out how to complete that days Module Project
+
+# TODO: Download old version of twitoff folder with invented data from my github and resubmit for Module 1 Project
+
+# TODO: Already have tweets pulled, need to check SQLite DB Browser to confirm, then edit base.HTML to display tweets underneath users
+
+# TODO: Add vector embeddings for Module 2 Project and then submit
 
 # def insert_users(usernames):
 #     for id_index, username in enumerate(usernames):
@@ -59,3 +66,4 @@ def create_app():
 #         # TODO: Read up on the SQLalchemy documentation in order to assign my six invented tweets to not just one user, but BOTH: https://docs.sqlalchemy.org/en/14/orm/query.html?highlight=filter_by#sqlalchemy.orm.Query.filter_by
 #         DB.session.add(tweet_)
 #         DB.session.commit()
+

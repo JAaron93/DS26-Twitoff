@@ -21,6 +21,7 @@ flask-sqlalchemy = "*"
 tweepy = "*"
 spacy = "*"
 python-dotenv = "*"
+google-api-python-client = "*"
 
 [dev-packages]
 
