@@ -32,28 +32,30 @@ def add_or_update_user(username):
     SQLAlchemy database.
     """
     # Error handling
-    # How do we deal with the possibility of getting a user that doesn't exist? 
+    # How do we deal with the possibility of getting a user that doesn't exist?
     # Will break our code! We can handle that by using a try statement!
     try:
         twitter_user = api.get_user(username)
-        # Where we decide whether or not to add or update. 
+        # Where we decide whether or not to add or update.
         # By prefacing code with a db, that means we're adding it to our database
-        #.get will be grabbing our twitter users by their id. If that user is in our database? Grab that user and assign it to db_user.
+        # .get will be grabbing our twitter users by their id. If that user is in our database? Grab that user and assign it to db_user.
         # If that user isn't in our database, it'll go with the second argument where it will CREATE a user
-        db_user = User.query.get(twitter_user.id) or User(
+        db_user = (User.query.get(twitter_user.id)) or User(
             id=twitter_user.id, username=username)
+
         DB.session.add(db_user)
+
         tweets = twitter_user.timeline(
                                        count=200,
                                        exclude_replies=True,
                                        include_rts=False,
-                                       tweet_mode="extended"  # Returns everything about a tweet, including emojis or whatever else 
+                                       # Returns everything about a tweet, including emojis or whatever else
+                                       tweet_mode="extended",
                                        since_id=db_user.newest_tweet_id   # This is where the updating happens
                                        )
 
         if tweets:
             db_user.newest_tweet_id = tweets[0].id
-
 
         for tweet in tweets:
             # Run vectorize_tweet function
@@ -67,10 +69,10 @@ def add_or_update_user(username):
             # Note: If we added before appending we would likely get an error
             DB.session.add(db_tweet)
 
-      except Exception as e:
-          # This will be returned as the reason the non-existent user cannot be added
-          print("Error Processing {username}: {e}")
-          raise e
-    
-      else: 
-          DB.session.commit()
+    except Exception as e:
+        # This will be returned as the reason the non-existent user cannot be added
+        print(f"Error Processing {username}: {e}")
+        raise e
+
+    else:
+        DB.session.commit()
