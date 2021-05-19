@@ -18,6 +18,9 @@ psycopg2 = "*"
 flask = "*"
 jinja2 = "*"
 flask-sqlalchemy = "*"
+tweepy = "*"
+spacy = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
