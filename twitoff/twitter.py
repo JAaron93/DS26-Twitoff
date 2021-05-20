@@ -45,14 +45,15 @@ def add_or_update_user(username):
 
         DB.session.add(db_user)
 
+        # TODO: grab same number of tweets for each user. Use tweepy documentation to figure this out with pre-filtering to counter the current post-filtering we have written here
         tweets = twitter_user.timeline(
-                                       count=200,
-                                       exclude_replies=True,
-                                       include_rts=False,
-                                       # Returns everything about a tweet, including emojis or whatever else
-                                       tweet_mode="extended",
-                                       since_id=db_user.newest_tweet_id   # This is where the updating happens
-                                       )
+            count=200,
+            exclude_replies=True,
+            include_rts=False,
+            # Returns everything about a tweet, including emojis or whatever else
+            tweet_mode="extended",
+            since_id=db_user.newest_tweet_id   # This is where the updating happens
+        )
 
         if tweets:
             db_user.newest_tweet_id = tweets[0].id
