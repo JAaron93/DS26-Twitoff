@@ -14,7 +14,7 @@ def create_app():
     """
     app = Flask(__name__)   # Name points to where our path is once we run code
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL")
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     DB.init_app(app)
 
