@@ -28,7 +28,7 @@ def vectorize_tweet(tweet_text):
 def add_or_update_user(username):
     """
     Takes a username and adds them to our DB from the twitter DB.
-    Get user and get up to 200 of their tweets and add to our
+    Get user and get up to 2000 of their tweets and add to our
     SQLAlchemy database.
     """
     # Error handling
@@ -47,7 +47,7 @@ def add_or_update_user(username):
 
         # TODO: grab same number of tweets for each user. Use tweepy documentation to figure this out with pre-filtering to counter the current post-filtering we have written here
         tweets = twitter_user.timeline(
-            count=200,
+            count=2000,
             exclude_replies=True,
             include_rts=False,
             # Returns everything about a tweet, including emojis or whatever else

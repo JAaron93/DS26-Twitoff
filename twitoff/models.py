@@ -31,7 +31,7 @@ class Tweet(DB.Model):
     id = DB.Column(DB.BigInteger, primary_key=True)
     # text column for 'tweet'
     # Also make sure to use UNICODE b/c emojis and the like
-    text = DB.Column(DB.Unicode(600))
+    text = DB.Column(DB.Unicode(6000))
     # Creating a new column for vectorization
     # Being saved as a pickletype to deal with numpy arrays generated from the NLP we ran with Spacy & word2vect in our twitter.py
     # Stores numbers that represent tweets
