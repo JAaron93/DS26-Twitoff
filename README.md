@@ -1,2 +1,2 @@
 # DS26-Twitoff
-Data Science Web Application
+Example of applying Machine Learning to Twitter in the form of a Flask web ppplication
