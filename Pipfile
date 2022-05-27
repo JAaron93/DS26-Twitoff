@@ -19,6 +19,7 @@ python-dotenv = "*"
 google-api-python-client = "*"
 gunicorn = "*"
 requests = "*"
+heroku = "*"
 
 [dev-packages]
 
