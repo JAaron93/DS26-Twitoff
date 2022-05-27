@@ -35,19 +35,19 @@ def add_or_update_user(username):
     # How do we deal with the possibility of getting a user that doesn't exist?
     # Will break our code! We can handle that by using a try statement!
     try:
-        twitter_user = api.get_user(username)
+        twitter_user = api.get_user(screen_name=username)
         # Where we decide whether or not to add or update.
         # By prefacing code with a db, that means we're adding it to our database
         # .get will be grabbing our twitter users by their id. If that user is in our database? Grab that user and assign it to db_user.
         # If that user isn't in our database, it'll go with the second argument where it will CREATE a user
-        db_user = (User.query.get(twitter_user.id)) or User(
+        db_user = User.query.get(twitter_user.id) or User(
             id=twitter_user.id, username=username)
 
         DB.session.add(db_user)
 
         # TODO: grab same number of tweets for each user. Use tweepy documentation to figure this out with pre-filtering to counter the current post-filtering we have written here
         tweets = twitter_user.timeline(
-            count=200,
+            count=2000,
             exclude_replies=True,
             include_rts=False,
             # Returns everything about a tweet, including emojis or whatever else
