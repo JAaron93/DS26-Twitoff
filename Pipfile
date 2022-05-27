@@ -5,14 +5,10 @@ name = "pypi"
 
 [packages]
 pandas = "*"
-as = "*"
 pd = "*"
 numpy = "*"
-np = "*"
-pytest = "*"
 sklearn = "*"
 autopep8 = "*"
-pycodestyle = "*"
 psycopg2-binary = "*"
 psycopg2 = "*"
 flask = "*"
@@ -23,6 +19,7 @@ spacy = "*"
 python-dotenv = "*"
 google-api-python-client = "*"
 gunicorn = "*"
+requests = "*"
 
 [dev-packages]
 
