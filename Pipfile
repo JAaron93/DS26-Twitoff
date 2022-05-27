@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 pandas = "*"
 pd = "*"
-numpy = "*"
+numpy = ">=1.21"
 sklearn = "*"
 autopep8 = "*"
 psycopg2-binary = "*"
