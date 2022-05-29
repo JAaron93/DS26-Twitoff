@@ -47,7 +47,7 @@ def add_or_update_user(username):
 
         # TODO: grab same number of tweets for each user. Use tweepy documentation to figure this out with pre-filtering to counter the current post-filtering we have written here
         tweets = twitter_user.timeline(
-            count=2000,
+            count=200,
             exclude_replies=True,
             include_rts=False,
             # Returns everything about a tweet, including emojis or whatever else
